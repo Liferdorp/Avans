@@ -9,10 +9,15 @@ package businessentity;
  *
  * @author jessi
  */
-public class OpenOrder {
+public class OpenKitchenOrder {
     
     private String status;
     
+    public OpenKitchenOrder(String status){
+        this.status = status;
+        
+    }
+   
     public String getStatus(){
         return status;
     }

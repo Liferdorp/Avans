@@ -5,34 +5,33 @@
  */
 package datastorage;
 
+import businessentity.OpenKitchenOrder;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import businessentity.Drink;
 
 /**
  *
- * @author 23IVP3A2
+ * @author Bas
  */
-public class DrinksDAO {
-    
-    public DrinksDAO(){
-    
-}
-    
-        public List<Drinks> getAllDrinks (Drink drinks) {
-        List<Drinks> getAllDrinks = new ArrayList<>();
+public class OpenKitchenOrdersDAO {
 
-        if (drinks != null) {
+    public OpenKitchenOrdersDAO() {
+
+    }
+
+    public List<OpenKitchenOrder> getAllOpenKitchenOrders(OpenKitchenOrder openkitchenorders) {
+        List<OpenKitchenOrder> getAllOpenKitchenOrders = new ArrayList<>();
+
+        if (openkitchenorders != null) {
             // First open a database connnection
             DatabaseConnection connection = new DatabaseConnection();
             if (connection.openConnection()) {
                 // If a connection was successfully setup, execute the SELECT statement.
-                int membershipNumber = member.getMembershipNumber();
                 ResultSet resultset = connection.executeSQLSelectStatement(
-                        "SELECT * FROM JEMOETJEBEKHOUDEN WHERE MembershipNr = " + membershipNumber + ";");
+                        "SELECT * FROM kitchenorder WHERE statusId = 5 OR 6;"
+                );
 
                 if (resultset != null) {
                     try {
@@ -41,14 +40,13 @@ public class DrinksDAO {
                             // for this POC: no Copy objects are loaded. Having the
                             // Loan objects without the Copy objects will do fine
                             // to determine whether the owning Member can be removed.
-                            Date returnDate = resultset.getDate("ReturnDate");
 
-                            Drinks newLoan = new Drinks(returnDate, drinks, null);
-                            loans.add(newLoan);
+                            OpenKitchenOrder newOpenKitchenOrder = new OpenKitchenOrder(4);
+                            getAllOpenKitchenOrders.add(newOpenKitchenOrder);
                         }
                     } catch (SQLException e) {
                         System.out.println(e);
-                        loans.clear();
+                        getAllOpenKitchenOrders.clear();
                     }
                 }
                 // else an error occurred leave array list empty.
@@ -58,7 +56,6 @@ public class DrinksDAO {
                 connection.closeConnection();
             }
         }
-
-        
-    
-
+        return getAllOpenKitchenOrders;
+    }
+}
