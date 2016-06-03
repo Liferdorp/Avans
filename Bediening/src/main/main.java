@@ -6,12 +6,11 @@
 package main;
  
 
-import businessentity.OpenKitchenOrder;
+import businessentity.OpenBarOrder;
 import presentation.ScreenInfoFrame;
 import businesslogic.SystemManager;
 import datastorage.OpenBarOrdersDAO;
-import datastorage.OpenKitchenOrdersDAO;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  *
@@ -29,13 +28,16 @@ import java.util.Arrays;
         ScreenInfoFrame ui = new ScreenInfoFrame(new SystemManager());
         ui.setVisible(true);
         
-        OpenBarOrdersDAO Dao = new OpenBarOrdersDAO ();
+        OpenBarOrdersDAO dao = new OpenBarOrdersDAO ();
         
 
         
-                OpenKitchenOrder testOrder = new OpenKitchenOrder(1, 2, 3, 4);
-                OpenKitchenOrder[] array = new OpenKitchenOrder[] {testOrder};
-                System.out.println(Arrays.toString(array));
+               
+                ArrayList<OpenBarOrder> test=dao.getAllOpenBarOrders(null);
+                for(OpenBarOrder order : test){
+                    System.out.println(order.toString());
+                }
+                
 
     }
         
