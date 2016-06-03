@@ -5,14 +5,38 @@
  */
 package main;
  
-import java.awt.*;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JTextField;
+
+import businessentity.OpenKitchenOrder;
 import presentation.ScreenInfoFrame;
+import businesslogic.SystemManager;
+import datastorage.OpenBarOrdersDAO;
+import datastorage.OpenKitchenOrdersDAO;
+import java.util.Arrays;
+
+/**
+ *
+ * @author 23IVP4A2
+ */
 
 
- 
-public class main extends ScreenInfoFrame {
 
+ public class main {
+
+    
+   
+    public static void main(String[] args) {
+
+        ScreenInfoFrame ui = new ScreenInfoFrame(new SystemManager());
+        ui.setVisible(true);
+        
+        OpenBarOrdersDAO Dao = new OpenBarOrdersDAO ();
+        
+
+        
+                OpenKitchenOrder testOrder = new OpenKitchenOrder(1, 2, 3, 4);
+                OpenKitchenOrder[] array = new OpenKitchenOrder[] {testOrder};
+                System.out.println(Arrays.toString(array));
+
+    }
+        
 }

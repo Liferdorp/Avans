@@ -9,11 +9,12 @@ import businessentity.OpenKitchenOrder;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+
 
 /**
  *
- * @author Bas
+ * @author 23IVP4A2
  */
 public class OpenKitchenOrdersDAO {
 
@@ -21,8 +22,8 @@ public class OpenKitchenOrdersDAO {
 
     }
 
-    public List<OpenKitchenOrder> getAllOpenKitchenOrders(OpenKitchenOrder openkitchenorders) {
-        List<OpenKitchenOrder> getAllOpenKitchenOrders = new ArrayList<>();
+    public ArrayList<OpenKitchenOrder> getAllOpenKitchenOrders(OpenKitchenOrder openkitchenorders) {
+        ArrayList<OpenKitchenOrder> getAllOpenKitchenOrders = new ArrayList<>();
 
         if (openkitchenorders != null) {
             // First open a database connnection
@@ -30,7 +31,20 @@ public class OpenKitchenOrdersDAO {
             if (connection.openConnection()) {
                 // If a connection was successfully setup, execute the SELECT statement.
                 ResultSet resultset = connection.executeSQLSelectStatement(
-                        "SELECT * FROM kitchenorder WHERE statusId = 5 OR 6;"
+                        "SELECT `kitchenorder`.`id`,"
+                        + "`kitchenorder`.`orderDate`, "
+                        + "`kitchenorder`.`restaurantOrderId`, "
+                        + "`kitchenorder`.`statusId`, "
+                        + "`restaurantorder`.`id`, "
+                        + "`restaurantorder`.`tableNr`"
+                        + "`kitchenorder_dish`.`kitchenOrderId`"
+                        + "`kitchenorder_dish`.`dishId`"
+                        + "`kitchenorder_dish`.`quantity`"
+                        + "FROM kitchenorder, restaurantorder, kitchenorder_dish "
+                        + "WHERE statusId = 5 OR "
+                        + "statusId = 6 "
+                        + "AND `kitchenorder`.`restaurantOrderId`=`restaurantorder`.`id` "
+                        + "AND `kitchenorder`.`id` = `kitchenorder_dish`.`kitchenOrderId`;"
                 );
 
                 if (resultset != null) {
@@ -40,9 +54,16 @@ public class OpenKitchenOrdersDAO {
                             // for this POC: no Copy objects are loaded. Having the
                             // Loan objects without the Copy objects will do fine
                             // to determine whether the owning Member can be removed.
+                            int status = resultset.getInt("statusId");
+                            int dishId = resultset.getInt("dishId");
+                            int quantity = resultset.getInt("quantity");
+                            int tableNr = resultset.getInt("tableNr");
 
-                            OpenKitchenOrder newOpenKitchenOrder = new OpenKitchenOrder(4);
+                            OpenKitchenOrder newOpenKitchenOrder = new OpenKitchenOrder(status, dishId, quantity, tableNr);
                             getAllOpenKitchenOrders.add(newOpenKitchenOrder);
+                            // print
+                            OpenKitchenOrder[] array = new OpenKitchenOrder[] {newOpenKitchenOrder};
+                            System.out.println(Arrays.toString(array));
                         }
                     } catch (SQLException e) {
                         System.out.println(e);
@@ -54,8 +75,11 @@ public class OpenKitchenOrdersDAO {
                 // We had a database connection opened. Since we're finished,
                 // we need to close it.
                 connection.closeConnection();
+
             }
+
         }
         return getAllOpenKitchenOrders;
     }
+
 }

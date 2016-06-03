@@ -7,7 +7,7 @@ package businessentity;
 
 /**
  *
- * @author jessi
+ * @author 23IVP4A2
  */
 public class AcceptedKitchenOrder {
     

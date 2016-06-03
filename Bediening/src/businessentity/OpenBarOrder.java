@@ -5,22 +5,53 @@
  */
 package businessentity;
 
+
 /**
  *
- * @author Bas
+ * @author 23IVP4A2
  */
+
+
 public class OpenBarOrder {
-    private String status;
-    private Date datum;
-            
-    public OpenBarOrder(String status){
+
+    public int status;
+    private int drinkId;
+    private int tableNr;
+    private int quantity;
+
+    public OpenBarOrder(int status, int drinkId, int quantity, int tableNr) {
         this.status = status;
+        this.drinkId = drinkId;
+        this.tableNr = tableNr;
+        this.quantity = quantity;
         
+
+
     }
-   
-    public String getStatus(){
-        return status;
+
+    @Override
+    public String toString() {
+        return ("Status: " + this.getStatus() + 
+                " Drink ID: " + this.getdrinkId() + 
+                " Table Number: " + this.getTableNr() + 
+                " Quantity: " + this.getQuantity()) ;
     }
     
-}
+    public int getStatus() {
+        return status;
+    }
 
+    public int getdrinkId() {
+        return drinkId;
+    }
+
+    public int getTableNr() {
+        return tableNr;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+    
+
+}

@@ -8,7 +8,7 @@ import java.sql.*;
 
 /**
  *
- * @author Jessie den Ridder
+ * @author 23IVP4A2
  */
 public class DatabaseConnection {
 
@@ -32,7 +32,7 @@ public class DatabaseConnection {
             try {
                 // Try to create a connection with the library database
                 connection = DriverManager.getConnection(
-                        "jdbc:mysql://145.48.6.147:3306/23ivp4a", "root", "10ec4u");
+                        "jdbc:mysql://145.48.6.147:3306/23ivp4a", "hha2_1user", "hha2pass");
 
                 if (connection != null) {
                     statement = connection.createStatement();
