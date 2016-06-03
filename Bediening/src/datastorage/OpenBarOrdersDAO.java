@@ -26,7 +26,7 @@ public class OpenBarOrdersDAO {
     public ArrayList<OpenBarOrder> getAllOpenBarOrders(OpenBarOrder openbarorders) {
         ArrayList<OpenBarOrder> getAllOpenBarOrders = new ArrayList<>();
 
-        if (openbarorders != null) {
+        if ( true) {
             // First open a database connnection
             DatabaseConnection connection = new DatabaseConnection();
             if (connection.openConnection()) {
