@@ -11,8 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
-
 /**
  *
  * @author 23IVP4A2
@@ -26,7 +24,7 @@ public class OpenBarOrdersDAO {
     public ArrayList<OpenBarOrder> getAllOpenBarOrders(OpenBarOrder openbarorders) {
         ArrayList<OpenBarOrder> getAllOpenBarOrders = new ArrayList<>();
 
-        if ( true) {
+        if (true) {
             // First open a database connnection
             DatabaseConnection connection = new DatabaseConnection();
             if (connection.openConnection()) {
@@ -34,17 +32,17 @@ public class OpenBarOrdersDAO {
                 ResultSet resultset = connection.executeSQLSelectStatement(
                         "SELECT `barorder`.`id`,"
                         + "`barorder`.`orderDate`, "
-                        + "`barorder`.`restaurantOrderId`, "
+                        + "`barorder`.`restaurantOrderNo`, "
                         + "`barorder`.`statusId`, "
-                        + "`restaurantorder`.`id`, "
-                        + "`restaurantorder`.`tableNr`"
-                        + "`barorder_drink`.`barOrderId`"
-                        + "`barorder_drink`.`drinkId`"
-                        + "`barorder_drink`.`quantity`"
+                        + "`restaurantorder`.`orderNo`, "
+                        + "`restaurantorder`.`tableNumber`,"
+                        + "`barorder_drink`.`barorderId`,"
+                        + "`barorder_drink`.`drinkId`,"
+                        + "`barorder_drink`.`quantity` "
                         + "FROM barorder, restaurantorder, barorder_drink "
-                        + "WHERE statusId = 4 OR "
-                        + "statusId = 6 "
-                        + "AND `barorder`.`restaurantOrderId`=`restaurantorder`.`id` "
+                        + "WHERE `barorder`.statusId = 4 OR "
+                        + "`barorder`.statusId = 6 "
+                        + "AND `barorder`.`restaurantOrderNo`=`restaurantorder`.`orderNo` "
                         + "AND `barorder`.`id` = `barorder_drink`.`barOrderId`;"
                 );
 
@@ -62,9 +60,7 @@ public class OpenBarOrdersDAO {
 
                             OpenBarOrder newOpenBarOrder = new OpenBarOrder(status, drinkId, quantity, tableNr);
                             getAllOpenBarOrders.add(newOpenBarOrder);
-                            // print
-                            OpenBarOrder[] array = new OpenBarOrder[] {newOpenBarOrder};
-                            System.out.println(Arrays.toString(array));
+
                         }
                     } catch (SQLException e) {
                         System.out.println(e);

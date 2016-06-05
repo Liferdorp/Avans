@@ -5,6 +5,9 @@
  */
 package businessentity;
 
+import datastorage.OpenBarOrdersDAO;
+import java.util.List;
+
 
 /**
  *
@@ -13,6 +16,7 @@ package businessentity;
 
 
 public class OpenBarOrder {
+    
 
     public int status;
     private int drinkId;
@@ -25,7 +29,11 @@ public class OpenBarOrder {
         this.tableNr = tableNr;
         this.quantity = quantity;
         
-
+            OpenBarOrdersDAO dao = new OpenBarOrdersDAO();
+            List<OpenBarOrder> test = dao.getAllOpenBarOrders(null);
+            for (OpenBarOrder order : test) {
+            System.out.println(order.toString());
+        }
 
     }
 
@@ -53,5 +61,5 @@ public class OpenBarOrder {
         return quantity;
     }
     
-
 }
+
