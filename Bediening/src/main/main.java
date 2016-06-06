@@ -4,41 +4,42 @@
  * and open the template in the editor.
  */
 package main;
- 
 
 import businessentity.OpenBarOrder;
+import businessentity.OpenKitchenOrder;
 import presentation.ScreenInfoFrame;
 import businesslogic.SystemManager;
 import datastorage.OpenBarOrdersDAO;
+import datastorage.OpenKitchenOrdersDAO;
 import java.util.ArrayList;
 
 /**
  *
  * @author 23IVP4A2
  */
+public class main {
 
-
-
- public class main {
-
-    
-   
     public static void main(String[] args) {
 
         ScreenInfoFrame ui = new ScreenInfoFrame(new SystemManager());
         ui.setVisible(true);
         
-        OpenBarOrdersDAO dao = new OpenBarOrdersDAO ();
-        
+        //print barorder
+        OpenBarOrdersDAO daoBar = new OpenBarOrdersDAO();
 
+        ArrayList<OpenBarOrder> barOrders = daoBar.getAllOpenBarOrders(null);
+        for (OpenBarOrder barOrder : barOrders) {
+            System.out.println(barOrder.toString());
+        }
         
-               
-                ArrayList<OpenBarOrder> test=dao.getAllOpenBarOrders(null);
-                for(OpenBarOrder order : test){
-                    System.out.println(order.toString());
-                }
-                
+        //Print kitchenorder
+        OpenKitchenOrdersDAO daoKitchen = new OpenKitchenOrdersDAO();
+
+        ArrayList<OpenKitchenOrder> kitchenOrders = daoKitchen.getAllOpenKitchenOrders(null);
+        for (OpenKitchenOrder kitchenOrder : kitchenOrders) {
+            System.out.println(kitchenOrder.toString());
+        }
 
     }
-        
+
 }

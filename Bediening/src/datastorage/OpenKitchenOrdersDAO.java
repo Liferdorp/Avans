@@ -25,7 +25,7 @@ public class OpenKitchenOrdersDAO {
     public ArrayList<OpenKitchenOrder> getAllOpenKitchenOrders(OpenKitchenOrder openkitchenorders) {
         ArrayList<OpenKitchenOrder> getAllOpenKitchenOrders = new ArrayList<>();
 
-        if (openkitchenorders != null) {
+        if (true) {
             // First open a database connnection
             DatabaseConnection connection = new DatabaseConnection();
             if (connection.openConnection()) {
@@ -36,13 +36,13 @@ public class OpenKitchenOrdersDAO {
                         + "`kitchenorder`.`restaurantOrderId`, "
                         + "`kitchenorder`.`statusId`, "
                         + "`restaurantorder`.`id`, "
-                        + "`restaurantorder`.`tableNr`"
-                        + "`kitchenorder_dish`.`kitchenOrderId`"
-                        + "`kitchenorder_dish`.`dishId`"
+                        + "`restaurantorder`.`tableNumber`,"
+                        + "`kitchenorder_dish`.`kitchenOrderId`,"
+                        + "`kitchenorder_dish`.`dishId`,"
                         + "`kitchenorder_dish`.`quantity`"
-                        + "FROM kitchenorder, restaurantorder, kitchenorder_dish "
-                        + "WHERE statusId = 5 OR "
-                        + "statusId = 6 "
+                        + "FROM `kitchenorder`, `restaurantorder`, `kitchenorder_dish` "
+                        + "WHERE `kitchenorder`.`statusId` = 2 OR "
+                        + "`kitchenorder`.`statusId` = 3 "
                         + "AND `kitchenorder`.`restaurantOrderId`=`restaurantorder`.`id` "
                         + "AND `kitchenorder`.`id` = `kitchenorder_dish`.`kitchenOrderId`;"
                 );
@@ -55,11 +55,9 @@ public class OpenKitchenOrdersDAO {
                             // Loan objects without the Copy objects will do fine
                             // to determine whether the owning Member can be removed.
                             int status = resultset.getInt("statusId");
-                            int dishId = resultset.getInt("dishId");
-                            int quantity = resultset.getInt("quantity");
-                            int tableNr = resultset.getInt("tableNr");
+                            int tableNr = resultset.getInt("tableNumber");
 
-                            OpenKitchenOrder newOpenKitchenOrder = new OpenKitchenOrder(status, dishId, quantity, tableNr);
+                            OpenKitchenOrder newOpenKitchenOrder = new OpenKitchenOrder(status, tableNr);
                             getAllOpenKitchenOrders.add(newOpenKitchenOrder);
                             // print
                             OpenKitchenOrder[] array = new OpenKitchenOrder[] {newOpenKitchenOrder};

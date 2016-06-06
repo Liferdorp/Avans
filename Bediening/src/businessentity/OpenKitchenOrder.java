@@ -13,40 +13,25 @@ package businessentity;
 public class OpenKitchenOrder {
 
     public int status;
-    private int dishId;
     private int tableNr;
-    private int quantity;
 
-    public OpenKitchenOrder(int status, int dishId, int quantity, int tableNr) {
+    public OpenKitchenOrder(int status, int tableNr) {
         this.status = status;
-        this.dishId = dishId;
         this.tableNr = tableNr;
-        this.quantity = quantity;
-
     }
 
     @Override
     public String toString() {
         return ("Status: " + this.getStatus() + 
-                " Dish ID: " + this.getdishId() + 
-                " Table Number: " + this.getTableNr() + 
-                " Quantity: " + this.getQuantity()) ;
+                " Table Number: " + this.getTableNr());        
     }
     
     public int getStatus() {
         return status;
     }
 
-    public int getdishId() {
-        return dishId;
-    }
-
     public int getTableNr() {
         return tableNr;
     }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
+    
 }

@@ -37,15 +37,16 @@ public class OpenBarOrdersDAO {
                         + "`barorder`.`restaurantOrderId`, "
                         + "`barorder`.`statusId`, "
                         + "`restaurantorder`.`id`, "
-                        + "`restaurantorder`.`tableNr`"
-                        + "`barorder_drink`.`barOrderId`"
-                        + "`barorder_drink`.`drinkId`"
-                        + "`barorder_drink`.`quantity`"
-                        + "FROM barorder, restaurantorder, barorder_drink "
-                        + "WHERE statusId = 4 OR "
-                        + "statusId = 6 "
+                        + "`restaurantorder`.`tableNumber`,"
+                        + "`barorder_drink`.`barOrderId`,"
+                        + "`barorder_drink`.`quantity`,"
+                        + "`drink`.`drinkName`"
+                        + "FROM barorder, restaurantorder, barorder_drink,drink "
+                        + "WHERE barorder.statusId = 4 OR "
+                        + "barorder.statusId = 1 "
                         + "AND `barorder`.`restaurantOrderId`=`restaurantorder`.`id` "
-                        + "AND `barorder`.`id` = `barorder_drink`.`barOrderId`;"
+                        + "AND `barorder`.`id` = `barorder_drink`.`barOrderId`"
+                        + "AND `drink`.`id` = `barorder_drink`.`drinkId`;"
                 );
 
                 if (resultset != null) {
@@ -56,11 +57,11 @@ public class OpenBarOrdersDAO {
                             // Loan objects without the Copy objects will do fine
                             // to determine whether the owning Member can be removed.
                             int status = resultset.getInt("statusId");
-                            int drinkId = resultset.getInt("drinkId");
+                            String drinkName = resultset.getString("drinkName");
                             int quantity = resultset.getInt("quantity");
-                            int tableNr = resultset.getInt("tableNr");
+                            int tableNr = resultset.getInt("tableNumber");
 
-                            OpenBarOrder newOpenBarOrder = new OpenBarOrder(status, drinkId, quantity, tableNr);
+                            OpenBarOrder newOpenBarOrder = new OpenBarOrder(status, drinkName, quantity, tableNr);
                             getAllOpenBarOrders.add(newOpenBarOrder);
                             // print
                             OpenBarOrder[] array = new OpenBarOrder[] {newOpenBarOrder};

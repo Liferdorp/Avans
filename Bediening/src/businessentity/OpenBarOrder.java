@@ -15,13 +15,13 @@ package businessentity;
 public class OpenBarOrder {
 
     public int status;
-    private int drinkId;
+    private String drinkName;
     private int tableNr;
     private int quantity;
 
-    public OpenBarOrder(int status, int drinkId, int quantity, int tableNr) {
+    public OpenBarOrder(int status, String drinkName, int quantity, int tableNr) {
         this.status = status;
-        this.drinkId = drinkId;
+        this.drinkName = drinkName;
         this.tableNr = tableNr;
         this.quantity = quantity;
         
@@ -32,7 +32,7 @@ public class OpenBarOrder {
     @Override
     public String toString() {
         return ("Status: " + this.getStatus() + 
-                " Drink ID: " + this.getdrinkId() + 
+                " Drink: " + this.getDrinkName() + 
                 " Table Number: " + this.getTableNr() + 
                 " Quantity: " + this.getQuantity()) ;
     }
@@ -41,16 +41,16 @@ public class OpenBarOrder {
         return status;
     }
 
-    public int getdrinkId() {
-        return drinkId;
-    }
-
     public int getTableNr() {
         return tableNr;
     }
 
     public int getQuantity() {
         return quantity;
+    }
+    
+    public String getDrinkName(){
+        return drinkName;
     }
     
 
