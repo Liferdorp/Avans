@@ -5,6 +5,8 @@
  */
 package businessentity;
 
+import datastorage.OpenBarOrdersDAO;
+import java.util.List;
 
 /**
  *
@@ -24,19 +26,16 @@ public class OpenBarOrder {
         this.drinkName = drinkName;
         this.tableNr = tableNr;
         this.quantity = quantity;
-        
-
-
     }
 
     @Override
     public String toString() {
-        return ("Status: " + this.getStatus() + 
-                " Drink: " + this.getDrinkName() + 
-                " Table Number: " + this.getTableNr() + 
-                " Quantity: " + this.getQuantity()) ;
+        return ("Status: " + this.getStatus()
+                + " Drink: " + this.getDrinkName()
+                + " Table Number: " + this.getTableNr()
+                + " Quantity: " + this.getQuantity());
     }
-    
+
     public int getStatus() {
         return status;
     }
@@ -48,10 +47,10 @@ public class OpenBarOrder {
     public int getQuantity() {
         return quantity;
     }
-    
-    public String getDrinkName(){
+
+    public String getDrinkName() {
         return drinkName;
     }
-    
+
 
 }

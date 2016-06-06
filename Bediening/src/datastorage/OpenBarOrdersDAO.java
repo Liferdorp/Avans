@@ -26,7 +26,7 @@ public class OpenBarOrdersDAO {
     public ArrayList<OpenBarOrder> getAllOpenBarOrders(OpenBarOrder openbarorders) {
         ArrayList<OpenBarOrder> getAllOpenBarOrders = new ArrayList<>();
 
-        if ( true) {
+        if (true) {
             // First open a database connnection
             DatabaseConnection connection = new DatabaseConnection();
             if (connection.openConnection()) {
@@ -38,14 +38,14 @@ public class OpenBarOrdersDAO {
                         + "`barorder`.`statusId`, "
                         + "`restaurantorder`.`id`, "
                         + "`restaurantorder`.`tableNumber`,"
-                        + "`barorder_drink`.`barOrderId`,"
+                        + "`barorder_drink`.`barorderId`,"
                         + "`barorder_drink`.`quantity`,"
                         + "`drink`.`drinkName`"
-                        + "FROM barorder, restaurantorder, barorder_drink,drink "
-                        + "WHERE barorder.statusId = 4 OR "
-                        + "barorder.statusId = 1 "
+                        + "FROM `barorder`, `restaurantorder`, `barorder_drink`,`drink` "
+                        + "WHERE `barorder`.`statusId` = 1 OR "
+                        + "`barorder`.`statusId` = 2 "
                         + "AND `barorder`.`restaurantOrderId`=`restaurantorder`.`id` "
-                        + "AND `barorder`.`id` = `barorder_drink`.`barOrderId`"
+                        + "AND `barorder`.`id` = `barorder_drink`.`barorderId`"
                         + "AND `drink`.`id` = `barorder_drink`.`drinkId`;"
                 );
 
@@ -64,8 +64,8 @@ public class OpenBarOrdersDAO {
                             OpenBarOrder newOpenBarOrder = new OpenBarOrder(status, drinkName, quantity, tableNr);
                             getAllOpenBarOrders.add(newOpenBarOrder);
                             // print
-                            OpenBarOrder[] array = new OpenBarOrder[] {newOpenBarOrder};
-                            System.out.println(Arrays.toString(array));
+                          //  OpenBarOrder[] array = new OpenBarOrder[] {newOpenBarOrder};
+                           //System.out.println(Arrays.toString(array));
                         }
                     } catch (SQLException e) {
                         System.out.println(e);

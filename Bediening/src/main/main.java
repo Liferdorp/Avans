@@ -12,6 +12,7 @@ import businesslogic.SystemManager;
 import datastorage.OpenBarOrdersDAO;
 import datastorage.OpenKitchenOrdersDAO;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -23,7 +24,7 @@ public class main {
 
         ScreenInfoFrame ui = new ScreenInfoFrame(new SystemManager());
         ui.setVisible(true);
-        
+
         //print barorder
         OpenBarOrdersDAO daoBar = new OpenBarOrdersDAO();
 
@@ -31,7 +32,7 @@ public class main {
         for (OpenBarOrder barOrder : barOrders) {
             System.out.println(barOrder.toString());
         }
-        
+
         //Print kitchenorder
         OpenKitchenOrdersDAO daoKitchen = new OpenKitchenOrdersDAO();
 

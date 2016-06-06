@@ -60,8 +60,8 @@ public class OpenKitchenOrdersDAO {
                             OpenKitchenOrder newOpenKitchenOrder = new OpenKitchenOrder(status, tableNr);
                             getAllOpenKitchenOrders.add(newOpenKitchenOrder);
                             // print
-                            OpenKitchenOrder[] array = new OpenKitchenOrder[] {newOpenKitchenOrder};
-                            System.out.println(Arrays.toString(array));
+                            //OpenKitchenOrder[] array = new OpenKitchenOrder[] {newOpenKitchenOrder};
+                            //System.out.println(Arrays.toString(array));
                         }
                     } catch (SQLException e) {
                         System.out.println(e);
