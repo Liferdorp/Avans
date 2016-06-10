@@ -7,6 +7,7 @@ package main;
 
 import businessentity.OpenBarOrder;
 import businessentity.OpenKitchenOrder;
+import presentation.MyLogin;
 import presentation.ScreenInfoFrame;
 import businesslogic.SystemManager;
 import datastorage.OpenBarOrdersDAO;
@@ -22,8 +23,8 @@ public class main {
 
     public static void main(String[] args) {
 
-        ScreenInfoFrame ui = new ScreenInfoFrame(new SystemManager());
-        ui.setVisible(true);
+        MyLogin ui = new MyLogin();
+
 
         //print barorder
         OpenBarOrdersDAO daoBar = new OpenBarOrdersDAO();
@@ -40,6 +41,8 @@ public class main {
         for (OpenKitchenOrder kitchenOrder : kitchenOrders) {
             System.out.println(kitchenOrder.toString());
         }
+        
+        
 
     }
 

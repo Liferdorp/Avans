@@ -11,15 +11,49 @@ package businessentity;
  */
 public class Employee {
     
-    private String name;
+    private String userName;
     private int employeeNr;
-    
-    public String getName(){
-        return name;
+    private String password;
+    private String lastName;
+    private String firstName;
+
+    public Employee(String userName, int employeeNr, String password, String firstName, String lastName) {
+        this.userName = userName;
+        this.employeeNr = employeeNr;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        
     }
+    
+        @Override
+    public String toString() {
+        return ("Voornaam: " + this.getFirstName()
+                +"Achternaam: " + this.getLastName()
+                +"Gebruikersnaam: " + this.getUserName()
+                +"Werknemer nummer: " + this.getEmployeeNr());
+    }
+    
+
     
     public int getEmployeeNr(){
         return employeeNr;
+    }
+    
+    public String getPassword(){
+        return password;
+    }
+    
+     public String getUserName(){
+        return userName;
+    }
+    
+    public String getFirstName(){
+        return firstName;
+    }
+    
+    public String getLastName(){
+        return lastName;
     }
     
 }

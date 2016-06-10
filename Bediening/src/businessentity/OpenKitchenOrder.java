@@ -12,18 +12,26 @@ package businessentity;
  */
 public class OpenKitchenOrder {
 
-    public int status;
+    private int status;
     private int tableNr;
+    private String dishName;
+    private int kitchenOrderId;
+    private int quantity;
+    private String statusName;
 
-    public OpenKitchenOrder(int status, int tableNr) {
+    public OpenKitchenOrder(int status, int tableNr, String dishName, int quantity, int kitchenOrderId, String statusName) {
         this.status = status;
         this.tableNr = tableNr;
+        this.dishName = dishName;
+        this.quantity = quantity;
+        this.kitchenOrderId = kitchenOrderId;
+        this.statusName = statusName;
     }
 
     @Override
     public String toString() {
-        return ("Status: " + this.getStatus() + 
-                " Table Number: " + this.getTableNr());        
+        return ("Status: " + this.getStatus()  + ", "
+                + " Table Number: " + this.getTableNr());        
     }
     
     public int getStatus() {
@@ -34,4 +42,19 @@ public class OpenKitchenOrder {
         return tableNr;
     }
     
+    public String getDishName(){
+        return dishName;
+    }
+    
+    public int getKitchenOrderId(){
+        return kitchenOrderId;
+    }
+    
+    public int getQuantity(){
+        return quantity;
+    }
+    
+    public String getStatusName(){
+        return statusName;
+    }
 }

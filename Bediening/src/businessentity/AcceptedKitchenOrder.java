@@ -5,21 +5,33 @@
  */
 package businessentity;
 
+
 /**
  *
  * @author 23IVP4A2
  */
 public class AcceptedKitchenOrder {
+
+    public int status;
+    private int tableNr;
+
+    public AcceptedKitchenOrder(int status, int tableNr) {
+        this.status = status;
+        this.tableNr = tableNr;
+    }
+
+    @Override
+    public String toString() {
+        return ("Status: " + this.getStatus() + 
+                " Table Number: " + this.getTableNr());        
+    }
     
-    private String detials;
-    private String status;
-    
-    public String getStatus(){
+    public int getStatus() {
         return status;
     }
-    
-    public String getDetials(){
-        return detials;
+
+    public int getTableNr() {
+        return tableNr;
     }
-       
+    
 }

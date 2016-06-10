@@ -20,19 +20,23 @@ public class OpenBarOrder {
     private String drinkName;
     private int tableNr;
     private int quantity;
+    private int barOrderId;
+    private String statusName;
 
-    public OpenBarOrder(int status, String drinkName, int quantity, int tableNr) {
+    public OpenBarOrder(int barOrderId, int status, String drinkName, int quantity, int tableNr, String statusName) {
+        this.barOrderId = barOrderId;
         this.status = status;
         this.drinkName = drinkName;
         this.tableNr = tableNr;
         this.quantity = quantity;
+        this.statusName = statusName;
     }
 
     @Override
     public String toString() {
-        return ("Status: " + this.getStatus()
-                + " Drink: " + this.getDrinkName()
-                + " Table Number: " + this.getTableNr()
+        return ("Status: " + this.getStatus() + ", "
+                + " Drink: " + this.getDrinkName() + ", "
+                + " Table Number: " + this.getTableNr() + ", "
                 + " Quantity: " + this.getQuantity());
     }
 
@@ -50,6 +54,14 @@ public class OpenBarOrder {
 
     public String getDrinkName() {
         return drinkName;
+    }
+    
+    public int getBarOrderId() {
+        return barOrderId;
+    }
+    
+    public String getStatusName() {
+        return statusName;
     }
 
 

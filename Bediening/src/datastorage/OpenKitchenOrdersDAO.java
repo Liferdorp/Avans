@@ -39,12 +39,16 @@ public class OpenKitchenOrdersDAO {
                         + "`restaurantorder`.`tableNumber`,"
                         + "`kitchenorder_dish`.`kitchenOrderId`,"
                         + "`kitchenorder_dish`.`dishId`,"
-                        + "`kitchenorder_dish`.`quantity`"
-                        + "FROM `kitchenorder`, `restaurantorder`, `kitchenorder_dish` "
-                        + "WHERE `kitchenorder`.`statusId` = 2 OR "
-                        + "`kitchenorder`.`statusId` = 3 "
+                        + "`kitchenorder_dish`.`quantity`,"
+                        + "`dish`.`dishName`,"
+                        + "`status`.`statusName`"
+                        + "FROM `kitchenorder`, `restaurantorder`, `kitchenorder_dish`, `dish`, `status`"
+                        + "WHERE (`kitchenorder`.`statusId` = 2 OR "
+                        + "`kitchenorder`.`statusId` = 3) "
                         + "AND `kitchenorder`.`restaurantOrderId`=`restaurantorder`.`id` "
-                        + "AND `kitchenorder`.`id` = `kitchenorder_dish`.`kitchenOrderId`;"
+                        + "AND `kitchenorder`.`id` = `kitchenorder_dish`.`kitchenOrderId`"
+                        + "AND `kitchenorder_dish`.`dishId` = `dish`.`id`"
+                        + "AND `status`.`id` = `kitchenorder`.`statusId`;"
                 );
 
                 if (resultset != null) {
@@ -56,8 +60,13 @@ public class OpenKitchenOrdersDAO {
                             // to determine whether the owning Member can be removed.
                             int status = resultset.getInt("statusId");
                             int tableNr = resultset.getInt("tableNumber");
+                            String dishName = resultset.getString("dishName");
+                            int quantity =  resultset.getInt("quantity");
+                            int kitchenOrderId = resultset.getInt("id");
+                            String statusName = resultset.getString("statusName");
+                            
 
-                            OpenKitchenOrder newOpenKitchenOrder = new OpenKitchenOrder(status, tableNr);
+                            OpenKitchenOrder newOpenKitchenOrder = new OpenKitchenOrder(status, tableNr, dishName, quantity, kitchenOrderId, statusName);
                             getAllOpenKitchenOrders.add(newOpenKitchenOrder);
                             // print
                             //OpenKitchenOrder[] array = new OpenKitchenOrder[] {newOpenKitchenOrder};

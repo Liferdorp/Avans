@@ -12,10 +12,30 @@ package businessentity;
 public class Drink {
     
     private String name;
+    private double price;
     private int ID;
+
+    public Drink(String name, double price, int ID) {
+        this.name = name;
+        this.price = price;
+        this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return ("Naam: " + this.getName() + ", "
+                + "Prijs: " + this.getPrice() + ", "
+                + " ID: " + this.getID());
+    }
+    
+    
     
     public String getName(){
         return name;
+    }
+    
+    public double getPrice() {
+        return price;
     }
     
     public int getID(){

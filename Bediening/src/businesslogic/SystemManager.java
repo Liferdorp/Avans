@@ -43,8 +43,7 @@ public class SystemManager {
     public String getDrink() {
         return drink;
     }
-
-    OpenKitchenOrdersDAO openKitchenOrderDAO = new OpenKitchenOrdersDAO();
-    ArrayList<OpenKitchenOrder> openkitchenorder;
+    
+    
 
 }

@@ -5,34 +5,37 @@
 // */
 //package datastorage;
 //
+//import businessentity.Employee;
+//import presentation.Test2;
 //import java.sql.ResultSet;
 //import java.sql.SQLException;
 //import java.util.ArrayList;
-//import java.util.Date;
-//import java.util.List;
-//import businessentity.Drink;
+//import java.util.Arrays;
+//
+//
 //
 ///**
 // *
-// * @author 23IVP3A2
+// * @author 23IVP4A2
 // */
-//public class DrinksDAO {
-//    
-//    public DrinksDAO(){
-//    
-//}
-//    
-//        public List<Drinks> getAllDrinks (Drink drinks) {
-//        List<Drinks> getAllDrinks = new ArrayList<>();
+//public class EmployeeDAO {
 //
-//        if (drinks != null) {
+//    public EmployeeDAO() {
+//
+//    }
+//
+//    public ArrayList<Employee> getAllEmployee(Employee employee) {
+//        ArrayList<Employee> getAllEmployee= new ArrayList<>();
+//
+//        if (true) {
 //            // First open a database connnection
 //            DatabaseConnection connection = new DatabaseConnection();
 //            if (connection.openConnection()) {
 //                // If a connection was successfully setup, execute the SELECT statement.
-//                int membershipNumber = member.getMembershipNumber();
 //                ResultSet resultset = connection.executeSQLSelectStatement(
-//                        "SELECT * FROM JEMOETJEBEKHOUDEN WHERE MembershipNr = " + membershipNumber + ";");
+//                        "SELECT id, userName, password, firstName, lastName FROM employee WHERE userName = " 
+//                        + Test2.uname + " AND password = " + password + ";"
+//                );
 //
 //                if (resultset != null) {
 //                    try {
@@ -41,14 +44,21 @@
 //                            // for this POC: no Copy objects are loaded. Having the
 //                            // Loan objects without the Copy objects will do fine
 //                            // to determine whether the owning Member can be removed.
-//                            Date returnDate = resultset.getDate("ReturnDate");
+//                            String userName = resultset.getString("userName");
+//                            int employeeNr = resultset.getInt("ID");
+//                            String password = resultset.getString("password");
+//                            String firstName = resultset.getString("firstName");
+//                            String lastName = resultset.getString("lastName");
 //
-//                            Drinks newLoan = new Drinks(returnDate, drinks, null);
-//                            loans.add(newLoan);
+//                            Employee newEmployee = new Employee(userName, employeeNr, password, firstName, lastName);
+//                            getAllEmployee.add(newEmployee);
+//                            // print
+//                          //  OpenBarOrder[] array = new OpenBarOrder[] {newOpenBarOrder};
+//                           //System.out.println(Arrays.toString(array));
 //                        }
 //                    } catch (SQLException e) {
 //                        System.out.println(e);
-//                        loans.clear();
+//                        getAllEmployee.clear();
 //                    }
 //                }
 //                // else an error occurred leave array list empty.
@@ -56,9 +66,11 @@
 //                // We had a database connection opened. Since we're finished,
 //                // we need to close it.
 //                connection.closeConnection();
+//
 //            }
+//
 //        }
+//        return getAllEmployee;
+//    }
 //
-//        
-//    
-//
+//}
