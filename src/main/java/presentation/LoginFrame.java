@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package presentation;
+package main.java.presentation;
 
 /**
  *
  * @author Jessie den Ridder
  */
-import businesslogic.SystemManager;
+import main.java.businesslogic.SystemManager;
 import javax.swing.*;
 import java.awt.event.*;
 import java.sql.Connection;
@@ -17,7 +17,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import presentation.ScreenInfoFrame;
 
 public class LoginFrame {
 

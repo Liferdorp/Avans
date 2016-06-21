@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package presentation;
+package main.java.presentation;
 
 /**
  *
  * @author Jessie den Ridder
  */
-import businessentity.OpenBarOrder;
-import businessentity.OpenKitchenOrder;
-import datastorage.DatabaseConnection;
-import datastorage.OpenBarOrdersDAO;
-import datastorage.OpenKitchenOrdersDAO;
+import main.java.businessentity.OpenKitchenOrder;
+import main.java.datastorage.DatabaseConnection;
+import main.java.datastorage.OpenKitchenOrdersDAO;
 import javax.swing.*;
 import java.awt.event.*;
 import java.util.ArrayList;

@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package businessentity;
+package main.java.businessentity;
 
-import datastorage.OpenBarOrdersDAO;
-import java.util.List;
+
 
 /**
  *

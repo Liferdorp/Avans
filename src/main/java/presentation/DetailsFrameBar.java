@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package presentation;
+package main.java.presentation;
 
 /**
  *
  * @author Jessie den Ridder
  */
-import businessentity.OpenBarOrder;
-import datastorage.DatabaseConnection;
-import datastorage.OpenBarOrdersDAO;
+import main.java.businessentity.OpenBarOrder;
+import main.java.datastorage.DatabaseConnection;
+import main.java.datastorage.OpenBarOrdersDAO;
 import javax.swing.*;
 import java.awt.event.*;
 import java.util.ArrayList;

@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package datastorage;
+package main.java.datastorage;
 
-import businessentity.OpenBarOrder;
+import main.java.businessentity.OpenBarOrder;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  *

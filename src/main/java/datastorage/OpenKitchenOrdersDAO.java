@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package datastorage;
+package main.java.datastorage;
 
-import businessentity.OpenKitchenOrder;
+import main.java.businessentity.OpenKitchenOrder;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

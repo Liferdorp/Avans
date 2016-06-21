@@ -3,17 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main;
+package main.java.main;
 
-import businessentity.OpenBarOrder;
-import businessentity.OpenKitchenOrder;
-import presentation.LoginFrame;
-import presentation.ScreenInfoFrame;
-import businesslogic.SystemManager;
-import datastorage.OpenBarOrdersDAO;
-import datastorage.OpenKitchenOrdersDAO;
-import java.util.ArrayList;
-import java.util.List;
+import main.java.businesslogic.SystemManager;
 
 /**
  *

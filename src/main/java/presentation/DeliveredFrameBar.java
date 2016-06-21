@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package presentation;
+package main.java.presentation;
 
 /**
  *
  * @author Jessie den Ridder
  */
-import datastorage.DatabaseConnection;
+import main.java.datastorage.DatabaseConnection;
 import javax.swing.*;
 import java.awt.event.*;
 

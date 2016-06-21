@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package presentation;
+package main.java.presentation;
 
-import businessentity.OpenBarOrder;
-import businessentity.OpenKitchenOrder;
-import businessentity.OpenRestaurantOrder;
-import businesslogic.SystemManager;
-import datastorage.OpenBarOrdersDAO;
-import datastorage.OpenKitchenOrdersDAO;
-import datastorage.OpenRestaurantOrdersDAO;
+import main.java.businessentity.OpenBarOrder;
+import main.java.businessentity.OpenKitchenOrder;
+import main.java.businessentity.OpenRestaurantOrder;
+import main.java.datastorage.OpenBarOrdersDAO;
+import main.java.datastorage.OpenKitchenOrdersDAO;
+import main.java.datastorage.OpenRestaurantOrdersDAO;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;

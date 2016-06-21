@@ -4,11 +4,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package businesslogic;
+package main.java.businesslogic;
 
-import datastorage.DatabaseConnection;
-import presentation.LoginFrame;
-import presentation.PayedFrame;
+import main.java.datastorage.DatabaseConnection;
+import main.java.presentation.LoginFrame;
+
 
 /**
  *
