@@ -5,12 +5,12 @@
  */
 package main.java.presentation;
 
-import main.java.businessentity.OpenBarOrder;
-import main.java.businessentity.OpenKitchenOrder;
-import main.java.businessentity.OpenRestaurantOrder;
-import main.java.datastorage.OpenBarOrdersDAO;
-import main.java.datastorage.OpenKitchenOrdersDAO;
-import main.java.datastorage.OpenRestaurantOrdersDAO;
+import main.java.businessentity.BarOrder;
+import main.java.businessentity.KitchenOrder;
+import main.java.businessentity.RestaurantOrder;
+import main.java.datastorage.BarOrdersDAO;
+import main.java.datastorage.KitchenOrdersDAO;
+import main.java.datastorage.RestaurantOrdersDAO;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
@@ -68,106 +68,79 @@ public class ScreenInfoFrame extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         buttonLogOut.setText("Uitloggen");
-        buttonLogOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFrame1.dispose();
-                jFrame1.setVisible(false);
-                LoginFrame uiLoguit = new LoginFrame();
-
-            }
+        buttonLogOut.addActionListener((java.awt.event.ActionEvent evt) -> {
+            jFrame1.dispose();
+            jFrame1.setVisible(false);
+            LoginFrame uiLoguit = new LoginFrame();
         });
 
         buttonAcceptBar.setText("Accepteren");
-        buttonAcceptBar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-                jFrame1.dispose();
-                jFrame1.setVisible(false);
-                AcceptFrameBar uiAcceptBar = new AcceptFrameBar();
-
-            }
+        buttonAcceptBar.addActionListener((java.awt.event.ActionEvent evt) -> {
+            jButton4ActionPerformed(evt);
+            jFrame1.dispose();
+            jFrame1.setVisible(false);
+            AcceptFrameBar uiAcceptBar = new AcceptFrameBar();
         });
         buttonAcceptKitchen.setText("Accepteren");
-        buttonAcceptKitchen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-                jFrame1.dispose();
-                jFrame1.setVisible(false);
-                AcceptFrameKitchen uiAcceptKitchen = new AcceptFrameKitchen();
-
-            }
+        buttonAcceptKitchen.addActionListener((java.awt.event.ActionEvent evt) -> {
+            jButton4ActionPerformed(evt);
+            jFrame1.dispose();
+            jFrame1.setVisible(false);
+            AcceptFrameKitchen uiAcceptKitchen = new AcceptFrameKitchen();
         });
 
         buttonDeliveredKitchen.setText("<html>Bezorgd<br>Melden</html>");
-        buttonDeliveredKitchen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-                jFrame1.dispose();
-                jFrame1.setVisible(false);
-                DeliveredFrameKitchen uiDeliveredKitchen = new DeliveredFrameKitchen();
-
-            }
+        buttonDeliveredKitchen.addActionListener((java.awt.event.ActionEvent evt) -> {
+            jButton4ActionPerformed(evt);
+            jFrame1.dispose();
+            jFrame1.setVisible(false);
+            DeliveredFrameKitchen uiDeliveredKitchen = new DeliveredFrameKitchen();
         });
 
         buttonDeliveredBar.setText("<html>Bezorgd<br>Melden</html>");
-        buttonDeliveredBar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-                jFrame1.dispose();
-                jFrame1.setVisible(false);
-                DeliveredFrameBar uiDeliveredBar = new DeliveredFrameBar();
-
-            }
+        buttonDeliveredBar.addActionListener((java.awt.event.ActionEvent evt) -> {
+            jButton4ActionPerformed(evt);
+            jFrame1.dispose();
+            jFrame1.setVisible(false);
+            DeliveredFrameBar uiDeliveredBar = new DeliveredFrameBar();
         });
 
         buttonReceiptPayed.setText("<html>Betaald<br>Melden</html>");
-        buttonReceiptPayed.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-                jFrame1.dispose();
-                jFrame1.setVisible(false);
-                PayedFrame uiPayed = new PayedFrame();
-
-            }
+        buttonReceiptPayed.addActionListener((java.awt.event.ActionEvent evt) -> {
+            jButton4ActionPerformed(evt);
+            jFrame1.dispose();
+            jFrame1.setVisible(false);
+            PayedFrame uiPayed = new PayedFrame();
         });
 
         buttonReceipt.setText("Accepteren");
-        buttonReceipt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-                jFrame1.dispose();
-                jFrame1.setVisible(false);
-                ReceiptFrame uiPayed = new ReceiptFrame();
-
-            }
+        buttonReceipt.addActionListener((java.awt.event.ActionEvent evt) -> {
+            jButton4ActionPerformed(evt);
+            jFrame1.dispose();
+            jFrame1.setVisible(false);
+            ReceiptFrame uiPayed = new ReceiptFrame();
         });
 
         buttonBarDetails.setText("Details");
-        buttonBarDetails.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-                jFrame1.dispose();
-                jFrame1.setVisible(false);
-                DetailsFrameBar uiPayedKitchen = new DetailsFrameBar();
-
-            }
+        buttonBarDetails.addActionListener((java.awt.event.ActionEvent evt) -> {
+            jButton4ActionPerformed(evt);
+            jFrame1.dispose();
+            jFrame1.setVisible(false);
+            DetailsFrameBar uiPayedKitchen = new DetailsFrameBar();
         });
 
         buttonKitchenDetails.setText("Details");
-        buttonKitchenDetails.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-                jFrame1.dispose();
-                jFrame1.setVisible(false);
-                DetailsFrameKitchen uiPayedKitchen = new DetailsFrameKitchen();
-
-            }
+        buttonKitchenDetails.addActionListener((java.awt.event.ActionEvent evt) -> {
+            jButton4ActionPerformed(evt);
+            jFrame1.dispose();
+            jFrame1.setVisible(false);
+            DetailsFrameKitchen uiPayedKitchen = new DetailsFrameKitchen();
         });
 
         // Tabel BarOrders
-        OpenBarOrdersDAO daoBar = new OpenBarOrdersDAO();
+        BarOrdersDAO daoBar = new BarOrdersDAO();
 
-        ArrayList<OpenBarOrder> barOrders = daoBar.getAllOpenBarOrders(null);
+        ArrayList<BarOrder> barOrders = daoBar.getAllOpenBarOrders(null);
 
         DefaultTableModel model = new DefaultTableModel();
 
@@ -193,9 +166,9 @@ public class ScreenInfoFrame extends javax.swing.JFrame {
         jTable1.setModel(model);
 
         // Tabel KitchenOrders
-        OpenKitchenOrdersDAO daoKitchen = new OpenKitchenOrdersDAO();
+        KitchenOrdersDAO daoKitchen = new KitchenOrdersDAO();
 
-        ArrayList<OpenKitchenOrder> kitchenOrders = daoKitchen.getAllOpenKitchenOrders(null);
+        ArrayList<KitchenOrder> kitchenOrders = daoKitchen.getAllOpenKitchenOrders(null);
 
         DefaultTableModel model2 = new DefaultTableModel();
 
@@ -220,9 +193,9 @@ public class ScreenInfoFrame extends javax.swing.JFrame {
 
         jTable2.setModel(model2);
 
-        OpenRestaurantOrdersDAO daoRestaurant = new OpenRestaurantOrdersDAO();
+        RestaurantOrdersDAO daoRestaurant = new RestaurantOrdersDAO();
 
-        ArrayList<OpenRestaurantOrder> restaurantOrders = daoRestaurant.getAllOpenRestaurantOrders(null);
+        ArrayList<RestaurantOrder> restaurantOrders = daoRestaurant.getAllRestaurantOrders(null);
 
         DefaultTableModel model3 = new DefaultTableModel();
 

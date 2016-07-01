@@ -5,7 +5,8 @@
  */
 package main.java.main;
 
-import main.java.businesslogic.SystemManager;
+
+import main.java.presentation.LoginFrame;
 
 /**
  *
@@ -15,7 +16,7 @@ public class main {
 
     public static void main(String[] args) {
 
-        SystemManager manager = new SystemManager();
+        LoginFrame loginFrame = new LoginFrame();
         
 
     }

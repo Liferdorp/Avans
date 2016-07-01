@@ -9,9 +9,8 @@ package main.java.presentation;
  *
  * @author Jessie den Ridder
  */
-import main.java.businessentity.OpenBarOrder;
-import main.java.datastorage.DatabaseConnection;
-import main.java.datastorage.OpenBarOrdersDAO;
+import main.java.businessentity.BarOrder;
+import main.java.datastorage.BarOrdersDAO;
 import javax.swing.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -19,12 +18,12 @@ import javax.swing.table.DefaultTableModel;
 
 public class DetailsFrameBar {
 
-    private JFrame frame = new JFrame("Details bar bestellingen");
-    private JButton backButton = new JButton("Ga terug");
-    private JScrollPane jScrollPane1 = new JScrollPane();
-    private JTable jTable1 = new JTable();
+    private final JFrame frame = new JFrame("Details bar bestellingen");
+    private final JButton backButton = new JButton("Ga terug");
+    private final JScrollPane jScrollPane1 = new JScrollPane();
+    private final JTable jTable1 = new JTable();
     private final JLabel inputLabel1 = new JLabel("ID Bar Order");
-    private JTextField input1 = new JTextField();
+    private final JTextField input1 = new JTextField();
     private final JButton button = new JButton("Details");
     private final JLabel inputLabel3 = new JLabel("");
 
@@ -47,66 +46,56 @@ public class DetailsFrameBar {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-        ActionListener backButtonListner = new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                frame.dispose();
-                ScreenInfoFrame ui = new ScreenInfoFrame();
-                ui.setVisible(true);
-            }
+        ActionListener backButtonListner = (ActionEvent ae) -> {
+            frame.dispose();
+            ScreenInfoFrame ui = new ScreenInfoFrame();
+            ui.setVisible(true);
         };
 
-        ActionListener myActionListener = new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                String ID = input1.getText();
-                int orderID = Integer.parseInt(ID);
-                if (true) {
-                    DatabaseConnection connection = new DatabaseConnection();
-                    if (connection.openConnection()) {
-
-                        // Tabel BarOrders
-                        OpenBarOrdersDAO daoBar = new OpenBarOrdersDAO();
-
-                        ArrayList<OpenBarOrder> barOrders = daoBar.getAllOpenBarOrders(null);
-
-                        DefaultTableModel model = new DefaultTableModel();
-
-                        Object[] columnsName = new Object[5];
-
-                        columnsName[0] = "Barorder ID";
-                        columnsName[1] = "Drankje";
-                        columnsName[2] = "Tafel Nummer";
-                        columnsName[3] = "Hoeveelheid";
-                        columnsName[4] = "Status";
-
-                        model.setColumnIdentifiers(columnsName);
-
-                        Object[] rowData = new Object[5];
-
-                        for (int i = 0; i < barOrders.size(); i++) {
-
-                            if (orderID == barOrders.get(i).getBarOrderId()) {
-                                rowData[0] = barOrders.get(i).getBarOrderId();
-                                rowData[1] = barOrders.get(i).getDrinkName();
-                                rowData[2] = barOrders.get(i).getTableNr();
-                                rowData[3] = barOrders.get(i).getQuantity();
-                                rowData[4] = barOrders.get(i).getStatusName();
-
-                                model.addRow(rowData);
-                            }
-                        }
-
-                        jTable1.setModel(model);
-                        frame.getContentPane().add(jScrollPane1);
-                        frame.getContentPane().add(inputLabel3);
-                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
+        ActionListener myActionListener = (ActionEvent ae) -> {
+            String ID = input1.getText();
+            int orderID = Integer.parseInt(ID);
+            if (orderID > 0) {
+                
+                // Tabel BarOrders
+                BarOrdersDAO daoBar = new BarOrdersDAO();
+                
+                ArrayList<BarOrder> barOrders = daoBar.getAllOpenBarOrders(null);
+                
+                DefaultTableModel model = new DefaultTableModel();
+                
+                Object[] columnsName = new Object[5];
+                
+                columnsName[0] = "Barorder ID";
+                columnsName[1] = "Drankje";
+                columnsName[2] = "Tafel Nummer";
+                columnsName[3] = "Hoeveelheid";
+                columnsName[4] = "Status";
+                
+                model.setColumnIdentifiers(columnsName);
+                
+                Object[] rowData = new Object[5];
+                
+                for (int i = 0; i < barOrders.size(); i++) {
+                    
+                    if (orderID == barOrders.get(i).getBarOrderId()) {
+                        rowData[0] = barOrders.get(i).getBarOrderId();
+                        rowData[1] = barOrders.get(i).getDrinkName();
+                        rowData[2] = barOrders.get(i).getTableNr();
+                        rowData[3] = barOrders.get(i).getQuantity();
+                        rowData[4] = barOrders.get(i).getStatusName();
+                        
+                        model.addRow(rowData);
                     }
-
                 }
-
+                
+                jTable1.setModel(model);
+                frame.getContentPane().add(jScrollPane1);
+                frame.getContentPane().add(inputLabel3);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                
             }
-
         };
         backButton.addActionListener(backButtonListner);
         frame.getContentPane().add(inputLabel3);
