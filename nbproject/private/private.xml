@@ -3,18 +3,28 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/presentation/PayedFrame.java</file>
             <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/presentation/DeliveredFrameBar.java</file>
+            <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/presentation/PayedFrame.java</file>
             <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/presentation/ReceiptFrame.java</file>
-            <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/main/main.java</file>
             <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/businessentity/Employee.java</file>
+            <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/businessentity/KitchenOrder.java</file>
+            <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/main/main.java</file>
             <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/presentation/ScreenInfoFrame.java</file>
+            <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/businessentity/RestaurantOrder.java</file>
+            <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/datastorage/RestaurantOrdersDAO.java</file>
             <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/presentation/AcceptFrameBar.java</file>
             <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/presentation/DetailsFrameKitchen.java</file>
             <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/presentation/AcceptFrameKitchen.java</file>
             <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/presentation/DetailsFrameBar.java</file>
+            <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/presentation/LoginFrame.java</file>
+            <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/businessentity/BarOrder.java</file>
+            <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/datastorage/KitchenOrdersDAO.java</file>
+            <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/businessentity/Receipt.java</file>
+            <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/datastorage/DatabaseConnection.java</file>
             <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/businessentity/UpdateStatus.java</file>
+            <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/datastorage/BarOrdersDAO.java</file>
             <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/businesslogic/SystemManager.java</file>
+            <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/datastorage/EmployeeDAO.java</file>
             <file>file:/C:/Users/jessi/Documents/NetBeansProjects/School%20Applicatie%20-%20kopie/Bediening/src/main/java/presentation/DeliveredFrameKitchen.java</file>
         </group>
     </open-files>
